@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.text.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import spooketti.smashketti.moves.SmashAttack;
 import spooketti.smashketti.packet.smashAttackPayload;
 
 public class Smashketti implements ModInitializer {
@@ -22,7 +23,8 @@ public class Smashketti implements ModInitializer {
 		// Proceed with mild caution.
 		PayloadTypeRegistry.playC2S().register(smashAttackPayload.ID, smashAttackPayload.smashAttackPacketCODEC);
 		ServerPlayNetworking.registerGlobalReceiver(smashAttackPayload.ID, (payload, context) ->{
-			context.player().sendMessage(Text.literal("recieved"));
+//			context.player().sendMessage(Text.literal("recieved"));
+			SmashAttack.ChargeParticle(context.player());
 		});
 		LOGGER.info("Hello Fabric world!");
 		//test
