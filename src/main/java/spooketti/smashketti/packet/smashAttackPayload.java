@@ -8,7 +8,7 @@ import spooketti.smashketti.networking.PacketConstants;
 
 public record smashAttackPayload(boolean charging, int frames) implements CustomPayload
 {
-    public static final CustomPayload.Id<smashAttackPayload> smashAttackPacketID = new CustomPayload.Id<>(PacketConstants.SMASH_ATTACK_PACKET);
+    public static final CustomPayload.Id<smashAttackPayload> ID = new CustomPayload.Id<>(PacketConstants.SMASH_ATTACK_PACKET);
     public static final PacketCodec<RegistryByteBuf, smashAttackPayload> smashAttackPacketCODEC =
             PacketCodec.tuple(PacketCodecs.BOOL,smashAttackPayload::charging,
                     PacketCodecs.INTEGER, smashAttackPayload::frames,
@@ -16,7 +16,7 @@ public record smashAttackPayload(boolean charging, int frames) implements Custom
     @Override
     public CustomPayload.Id<? extends CustomPayload> getId()
     {
-        return smashAttackPacketID;
+        return ID;
     }
 }
 
