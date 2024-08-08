@@ -18,6 +18,7 @@ public class Smashketti implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Hello Fabric world!");
+		//test
 
 	}
 }
