@@ -3,7 +3,8 @@
 	"package": "spooketti.smashketti.mixin.client",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
-		"ExampleClientMixin"
+		"ExampleClientMixin",
+		"ClientDoubleJumpMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -7,7 +7,9 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.text.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import spooketti.smashketti.moves.DoubleJump;
 import spooketti.smashketti.moves.SmashAttack;
+import spooketti.smashketti.packet.doubleJumpPayload;
 import spooketti.smashketti.packet.smashAttackPayload;
 
 public class Smashketti implements ModInitializer {
@@ -16,16 +18,25 @@ public class Smashketti implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
     public static final Logger LOGGER = LoggerFactory.getLogger("smashketti");
 
-	@Override
-	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
+	private void registerPayloads()
+	{
 		PayloadTypeRegistry.playC2S().register(smashAttackPayload.ID, smashAttackPayload.smashAttackPacketCODEC);
 		ServerPlayNetworking.registerGlobalReceiver(smashAttackPayload.ID, (payload, context) ->{
 //			context.player().sendMessage(Text.literal("recieved"));
 			SmashAttack.ChargeParticle(context.player());
 		});
+
+		PayloadTypeRegistry.playC2S().register(doubleJumpPayload.ID, doubleJumpPayload.doubleJumpPacketCODEC);
+		ServerPlayNetworking.registerGlobalReceiver(smashAttackPayload.ID, (payload, context) ->{
+			DoubleJump.DoubleJumpAction(context.player());
+		});
+
+
+	}
+	@Override
+	public void onInitialize() {
+
+		registerPayloads();
 		LOGGER.info("Hello Fabric world!");
 		//test
 

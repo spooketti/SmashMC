@@ -18,7 +18,6 @@ public class SmashAttack {
         player.getServerWorld().spawnParticles(ParticleTypes.WITCH,spawnPos.x,spawnPos.y,spawnPos.z, 5, 0, 0, 0,.2);
         for(double i=0;i<1.5;i+=.5)
         {
-
             Vec3d smokeSpawnPos = player.getPos().subtract(lookVector.multiply(i));
              player.getServerWorld().spawnParticles(ParticleTypes.CLOUD,
                      smokeSpawnPos.x,player.getY()+(i/2),smokeSpawnPos.z,1,
