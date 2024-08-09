@@ -33,8 +33,17 @@ public class ClientDoubleJumpMixin {
 			doubleJumpCD = 2;
 		}
 		else if(newJump && canDoubleJump && doubleJumpCD <= 0)
-		{
-			player.addVelocity(0, 1, 0);
+		{/*
+			if(Math.abs(player.getVelocity().y) > 2 )
+			{
+				player.addVelocity(0,1,0);
+			}
+			else
+			{
+				player.setVelocity(0, 1, 0);
+			}
+			*/
+			player.setVelocity(player.getVelocity().x, 1, player.getVelocity().z);
 			canDoubleJump = false;
 			ClientPlayNetworking.send(new doubleJumpPayload());
 		}

@@ -14,11 +14,19 @@ public class SmashkettiClient implements ClientModInitializer {
 			new KeyBinding("key.smashketti.smash",
 					InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_R,
 					"key.smashketti.smashcontrol"));
+
+	public static final KeyBinding grab = KeyBindingHelper. registerKeyBinding(
+			new KeyBinding("key.smashketti.grab",
+					InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_G,
+					"key.smashketti.smashcontrol"));
+
+
 	@Override
 	public void onInitializeClient() {
 
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
 		ClientTickEvents.END_CLIENT_TICK.register(ClientSmashAttack::smashAttackLogic);
+//		ClientTickEvents.END_CLIENT_TICK.register(SideCamera::cameraLogic);
 	}
 
 }

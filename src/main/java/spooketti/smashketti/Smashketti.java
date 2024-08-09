@@ -27,7 +27,7 @@ public class Smashketti implements ModInitializer {
 		});
 
 		PayloadTypeRegistry.playC2S().register(doubleJumpPayload.ID, doubleJumpPayload.doubleJumpPacketCODEC);
-		ServerPlayNetworking.registerGlobalReceiver(smashAttackPayload.ID, (payload, context) ->{
+		ServerPlayNetworking.registerGlobalReceiver(doubleJumpPayload.ID, (payload, context) ->{
 			DoubleJump.DoubleJumpAction(context.player());
 		});
 
