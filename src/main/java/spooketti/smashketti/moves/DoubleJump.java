@@ -4,6 +4,8 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import spooketti.smashketti.util.PercentData;
+import spooketti.smashketti.util.SaveEntityData;
 
 public class DoubleJump
 {
@@ -18,8 +20,8 @@ public class DoubleJump
         data.putInt("testvalue",123);
         NbtCompound nbt = player.writeNbt(new NbtCompound());
         nbt.putInt("testvalue", (int)Math.floor(Math.random()*50));
-
-
+        PercentData.changePercent((SaveEntityData) player,50);
+        player.sendMessage(Text.literal("test" + ((SaveEntityData) player).getPersistentData().getDouble("percent")));
 
     }
 }

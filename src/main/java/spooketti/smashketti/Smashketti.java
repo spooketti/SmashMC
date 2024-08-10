@@ -4,13 +4,25 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.text.Text;
+import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.item.Items;
+import net.minecraft.potion.Potions;
+import net.minecraft.recipe.BrewingRecipeRegistry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import spooketti.smashketti.moves.DoubleJump;
 import spooketti.smashketti.moves.SmashAttack;
 import spooketti.smashketti.packet.doubleJumpPayload;
 import spooketti.smashketti.packet.smashAttackPayload;
+import spooketti.smashketti.potion.PotionRegister;
+import spooketti.smashketti.potion.SmashEffect;
+
+import java.awt.*;
+
 
 public class Smashketti implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
@@ -33,10 +45,14 @@ public class Smashketti implements ModInitializer {
 
 
 	}
+
+	public static final StatusEffect smashEffect = new SmashEffect();
+
 	@Override
 	public void onInitialize() {
-
 		registerPayloads();
+		PotionRegister.registerPotions();
+		Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of("smashketti","smash_effect"),smashEffect);
 		LOGGER.info("Hello Fabric world!");
 		//test
 

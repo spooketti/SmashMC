@@ -1,5 +1,8 @@
 {
   "key.smashketti.smash": "Smash Attack",
   "key.smashketti.grab": "Grab",
-  "key.smashketti.smashcontrol": "SmashMC Mod"
+  "key.smashketti.smashcontrol": "SmashMC Mod",
+  "item.minecraft.potion.effect.smash_potion": "Smash Potion",
+  "item.minecraft.splash_potion.effect.smash_potion": "Smash Splash Potion",
+  "item.minecraft.lingering_potion.effect.smash_potion": "Smash Lingering Potion"
 }

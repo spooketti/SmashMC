@@ -3,7 +3,8 @@
 	"package": "spooketti.smashketti.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"ExampleMixin",
+		"PercentMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
