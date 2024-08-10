@@ -1,5 +1,4 @@
 package spooketti.smashketti.moves;
 
-public class ClientGrab {
-
+public class ClientSpecial {
 }
