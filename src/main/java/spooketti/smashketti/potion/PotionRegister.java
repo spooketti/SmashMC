@@ -14,13 +14,19 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 
 public class PotionRegister {
-    public static final RegistryEntry.Reference<Potion> SMASH_POTION =
-            Registry.registerReference(Registries.POTION, Identifier.of("smashketti","smash_potion"),
-                    new Potion(new StatusEffectInstance(StatusEffects.WITHER,3600,0)));
+
+    //public static final StatusEffect smashEffect = new SmashEffect();
+
+
 
 
     public static void registerPotions()
     {
+
+        RegistryEntry<StatusEffect>SMASH_EFFECT = Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of("smashketti","smash_effect"),new SmashEffect());
+        RegistryEntry.Reference<Potion> SMASH_POTION =
+                Registry.registerReference(Registries.POTION, Identifier.of("smashketti","smash_potion"),
+                        new Potion(new StatusEffectInstance(SMASH_EFFECT,3600,0)));
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
             builder.registerPotionRecipe(Potions.STRENGTH, Items.BLAZE_POWDER,SMASH_POTION);
         });

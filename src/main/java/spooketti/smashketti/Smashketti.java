@@ -46,13 +46,11 @@ public class Smashketti implements ModInitializer {
 
 	}
 
-	public static final StatusEffect smashEffect = new SmashEffect();
 
 	@Override
 	public void onInitialize() {
 		registerPayloads();
 		PotionRegister.registerPotions();
-		Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of("smashketti","smash_effect"),smashEffect);
 		LOGGER.info("Hello Fabric world!");
 		//test
 

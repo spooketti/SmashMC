@@ -4,5 +4,6 @@
   "key.smashketti.smashcontrol": "SmashMC Mod",
   "item.minecraft.potion.effect.smash_potion": "Smash Potion",
   "item.minecraft.splash_potion.effect.smash_potion": "Smash Splash Potion",
-  "item.minecraft.lingering_potion.effect.smash_potion": "Smash Lingering Potion"
+  "item.minecraft.lingering_potion.effect.smash_potion": "Smash Lingering Potion",
+  "effect.smashketti.smash_effect": "Galeem's Blessing"
 }
