@@ -4,14 +4,6 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.item.Items;
-import net.minecraft.potion.Potions;
-import net.minecraft.recipe.BrewingRecipeRegistry;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import spooketti.smashketti.moves.DoubleJump;
