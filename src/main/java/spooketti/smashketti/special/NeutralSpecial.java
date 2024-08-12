@@ -9,14 +9,14 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class UpSpecial extends Item {
-    public UpSpecial(Settings settings) {
+public class NeutralSpecial extends Item {
+    public NeutralSpecial(Settings settings) {
         super(settings);
     }
 
     @Override
     public Text getName(ItemStack stack) {
-        return Text.translatable(this.getTranslationKey(stack)).styled(style -> style.withColor(Formatting.AQUA));
+        return Text.translatable(this.getTranslationKey(stack)).styled(style -> style.withColor(Formatting.GOLD));
     }
 
     @Override

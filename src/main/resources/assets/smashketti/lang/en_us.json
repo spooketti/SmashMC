@@ -5,5 +5,9 @@
   "item.minecraft.potion.effect.smash_potion": "Smash Potion",
   "item.minecraft.splash_potion.effect.smash_potion": "Smash Splash Potion",
   "item.minecraft.lingering_potion.effect.smash_potion": "Smash Lingering Potion",
-  "effect.smashketti.smash_effect": "Galeem's Blessing"
+  "effect.smashketti.smash_effect": "Galeem's Blessing",
+  "item.smashketti.up_special": "Upward Special",
+  "item.smashketti.side_special": "Forward Special",
+  "item.smashketti.down_special": "Downward Special",
+  "item.smashketti.neutral_special": "Neutral Special"
 }
