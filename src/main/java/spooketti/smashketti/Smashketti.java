@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.minecraft.entity.mob.WardenEntity;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -11,8 +12,10 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import spooketti.smashketti.moves.DoubleJump;
+import spooketti.smashketti.moves.Grab;
 import spooketti.smashketti.moves.SmashAttack;
 import spooketti.smashketti.packet.doubleJumpPayload;
+import spooketti.smashketti.packet.grabPayload;
 import spooketti.smashketti.packet.smashAttackPayload;
 import spooketti.smashketti.potion.PotionRegister;
 import spooketti.smashketti.special.DownSpecial;
@@ -35,12 +38,14 @@ public class Smashketti implements ModInitializer {
 	{
 		PayloadTypeRegistry.playC2S().register(smashAttackPayload.ID, smashAttackPayload.smashAttackPacketCODEC);
 		ServerPlayNetworking.registerGlobalReceiver(smashAttackPayload.ID, (payload, context) ->{
-//			context.player().sendMessage(Text.literal("recieved"));
 			SmashAttack.ChargeParticle(context.player());
 		});
 
 		PayloadTypeRegistry.playC2S().register(doubleJumpPayload.ID, doubleJumpPayload.doubleJumpPacketCODEC);
 		ServerPlayNetworking.registerGlobalReceiver(doubleJumpPayload.ID, (payload, context) -> DoubleJump.DoubleJumpAction(context.player()));
+
+		PayloadTypeRegistry.playC2S().register(grabPayload.ID, grabPayload.grabPacketCODEC);
+		ServerPlayNetworking.registerGlobalReceiver(grabPayload.ID, (payload, context) -> Grab.GrabMove(context.player()));
 	}
 
 	private void registerItems()

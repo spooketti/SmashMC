@@ -8,7 +8,15 @@ public class PercentData {
         NbtCompound nbt = player.getPersistentData();
         double percent = nbt.getDouble("percent");
         percent += amount;
+        percent = Math.max(0, Math.min(999, percent)); // clamp from 0 to 999 percent
         nbt.putDouble("percent",percent);
+        return percent;
+    }
+
+    public static double getPercent(SaveEntityData player)
+    {
+        NbtCompound nbt = player.getPersistentData();
+        double percent = nbt.getDouble("percent");
         return percent;
     }
 }

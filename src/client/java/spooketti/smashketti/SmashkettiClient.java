@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
+import spooketti.smashketti.moves.ClientGrab;
 import spooketti.smashketti.moves.ClientSmashAttack;
 
 public class SmashkettiClient implements ClientModInitializer {
@@ -26,6 +27,7 @@ public class SmashkettiClient implements ClientModInitializer {
 
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
 		ClientTickEvents.END_CLIENT_TICK.register(ClientSmashAttack::smashAttackLogic);
+		ClientTickEvents.END_CLIENT_TICK.register(ClientGrab::grabLogic);
 //		ClientTickEvents.END_CLIENT_TICK.register(SideCamera::cameraLogic);
 	}
 

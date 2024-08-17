@@ -1,5 +1,35 @@
 package spooketti.smashketti.moves;
 
-public class ClientGrab {
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.text.Text;
+import spooketti.smashketti.SmashkettiClient;
+import spooketti.smashketti.packet.grabPayload;
+import spooketti.smashketti.packet.smashAttackPayload;
 
+public class ClientGrab
+{
+    private static boolean wasGrabbing = false;
+    private static int grabDebounce = 5;
+    public static void grabLogic(MinecraftClient client)
+    {
+        if (SmashkettiClient.grab.isPressed() && !wasGrabbing && grabDebounce <= 0) {
+            grabDebounce = 20;
+            if(client.player != null)
+            {
+                client.player.setPitch(0);
+            }
+            sendGrabPacket();
+        }
+        else
+        {
+            grabDebounce--;
+        }
+        wasGrabbing = SmashkettiClient.grab.isPressed();
+    }
+
+    private static void sendGrabPacket()
+    {
+        ClientPlayNetworking.send(new grabPayload());
+    }
 }

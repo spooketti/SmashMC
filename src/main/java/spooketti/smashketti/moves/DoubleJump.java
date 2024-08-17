@@ -22,6 +22,6 @@ public class DoubleJump
         nbt.putInt("testvalue", (int)Math.floor(Math.random()*50));
         PercentData.changePercent((SaveEntityData) player,50);
         player.sendMessage(Text.literal("test" + ((SaveEntityData) player).getPersistentData().getDouble("percent")));
-
+        //player.useRiptide(10,5,null);
     }
 }
