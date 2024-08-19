@@ -13,12 +13,13 @@ public class ClientGrab
     private static int grabDebounce = 5;
     public static void grabLogic(MinecraftClient client)
     {
-        if (SmashkettiClient.grab.isPressed() && !wasGrabbing && grabDebounce <= 0) {
+        if(client.player == null)
+        {
+            return;
+        }
+        if (SmashkettiClient.grab.isPressed() && !wasGrabbing && grabDebounce <= 0 && client.player.isOnGround()) {
             grabDebounce = 20;
-            if(client.player != null)
-            {
-                client.player.setPitch(0);
-            }
+            client.player.setPitch(0);
             sendGrabPacket();
         }
         else

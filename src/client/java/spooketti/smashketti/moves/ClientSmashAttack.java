@@ -15,6 +15,11 @@ public class ClientSmashAttack {
 
     public static void smashAttackLogic(MinecraftClient client)
     {
+        if(client.player == null || !client.player.isOnGround())
+        {
+            return;
+        }
+
         if (SmashkettiClient.smashAttack.isPressed()) {
             smashAttackFrames++;
             //client.player.sendMessage(Text.literal("charging"), false);
